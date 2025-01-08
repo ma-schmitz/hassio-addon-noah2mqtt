@@ -8,7 +8,7 @@ RUN NOAH_MQTT_VERSION=$(jq --raw-output '.version // empty' config.json) && case
 *"armhf-base"*) ARCH="armv6";; \
 *"amd64-base"*) ARCH="amd64";; \
 esac \
-&& curl -L -o /noah-mqtt.tar.gz https://github.com/ma-schmitz/noah-mqtt/releases/download/v${NOAH_MQTT_VERSION}/noah-mqtt_${NOAH_MQTT_VERSION}_linux_${ARCH}.tar.gz && tar -xf /noah-mqtt.tar.gz && rm /noah-mqtt.tar.gz
+&& curl -L -o /noah-mqtt https://github.com/ma-schmitz/noah-mqtt/releases/download/v0.0.2.4/noah-mqtt
 
 COPY rootfs/docker-entrypoint.sh /
 RUN chmod a+x /noah-mqtt && chmod a+x /docker-entrypoint.sh
